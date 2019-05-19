@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="ECVitug Constructions" content="">
-  <title>Contact Email</title>
+  <title>Order Email</title>
 </head>
 
 <body style="padding:0px;margin:0px;font-family:'Helvetica Neue', Sans-serif, Arial;background-image:url({{ asset('img/email-bg.jpg') }})">
