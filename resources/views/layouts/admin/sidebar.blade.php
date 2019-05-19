@@ -134,6 +134,13 @@
       <span>Logs</span></a>
   </li>
 
+  <li class="nav-item {{ Route::is('admin.backup.index') ? 'active' : '' }}">
+    <a class="nav-link " href="{{route('admin.backup.index')}}">
+      <i class="fa fa-hdd" aria-hidden="true"></i>
+      <span>Backup And Restore</span></a>
+  </li>
+
+
   <!-- Nav Item - Tables -->
   <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseArchive" aria-expanded="true" aria-controls="collapseArchive">

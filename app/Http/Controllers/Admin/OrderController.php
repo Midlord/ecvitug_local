@@ -39,7 +39,7 @@ class OrderController extends Controller
 
     public function approveOrder(Request $request, $id)
     {
-       
+    //    return $request;
         $order = Order::find($id);
 
         $order->update([
@@ -58,8 +58,7 @@ class OrderController extends Controller
             
         }
 
-        Mail::to($request->customerEmail)
-            ->from('ecvconstructions@gmail.com')
+        Mail::to($request->CustomerEmail)
             ->send(new OrderMail($request));
             
         toastr()->success('Order successfully Approved!');

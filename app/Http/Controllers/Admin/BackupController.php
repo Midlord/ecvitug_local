@@ -8,6 +8,7 @@ use Log;
 use App\Models\History as AuditTrail;
 use Storage;
 use DB;
+use Config;
 use Illuminate\Routing\Controller;
 class BackupController extends Controller
 {
@@ -15,7 +16,7 @@ class BackupController extends Controller
     {
         $disk = Storage::disk('local');
 
-        $files = $disk->files('ecvitug');
+        $files = $disk->files('Laravel');
         $backups = [];
         // make an array of backup files, with their filesize and creation date
 
@@ -27,7 +28,7 @@ class BackupController extends Controller
             if (substr($f, -4) == '.zip' && $disk->exists($f)) {
                 $backups[] = [
                     'file_path' => $f,
-                    'file_name' => str_replace('ecvitug/', '', $f),
+                    'file_name' => str_replace('Laravel/', '', $f),
                     'file_size' => $disk->size($f),
                     'last_modified' => $disk->lastModified($f),
                 ];
@@ -50,21 +51,22 @@ class BackupController extends Controller
     {
         try {
             // start the backup process
+
+            Config::set('mail.driver', 'log');
+
             Artisan::call('backup:run',['--only-db' => true]);
 
             // Artisan::call('backup:run');
 
             $output = Artisan::output();
 
-            // return $output;
-            // log the results
-            Log::info("Backpack\BackupManager -- new backup started from admin interface \r\n" . $output);
-            // return the results as a response to the ajax call
-            
             AuditTrail::create([
                 'content' => 'Backup Database in at '.\Carbon\Carbon::now()->format('M d, Y h:i a').'',
                 'user_id' => auth()->user()->id,
             ]);
+
+            Config::set('mail.driver', 'smtp');
+
 
             toastr()->success('New Backup Created!');
 
@@ -87,7 +89,7 @@ class BackupController extends Controller
         /*
          * Included the full path of the file
          */
-        $file = 'ecvitug/' . $file_name;
+        $file = 'Laravel/' . $file_name;
         $disk = Storage::disk('local');
         if ($disk->exists($file)) {
             $fs = Storage::disk('local')->getDriver();
@@ -122,7 +124,11 @@ class BackupController extends Controller
     public function ImportDatabase(Request $request)
     {
 
-        DB::unprepared(file_get_contents('C:/Users/Ermelina/Downloads/db-dumps/'.$request->fileName));
+        DB::unprepared(file_get_contents('C:/Users/user/Desktop/db-dumps/'.$request->fileName));
+
+        
+
+
         toastr()->success('Tables imported successfully!');
 
 
