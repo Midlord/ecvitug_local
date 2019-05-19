@@ -1,0 +1,19 @@
+<script src="{{asset('interface/js/vendor/jquery-2.2.4.min.js')}}"></script>
+<script src="{{asset('interface/js/vendor/bootstrap.min.js')}}"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDHGh_Y_aErFpekKPEj2uJ_zNkEZTdwEIs"></script>
+{{-- <script src="{{asset('js/maps.js')}}"></script> --}}
+<script src="{{asset('interface/js/easing.min.js')}}"></script>
+<script src="{{asset('interface/js/hoverIntent.js')}}"></script>
+<script src="{{asset('interface/js/superfish.min.js')}}"></script>
+<script src="{{asset('interface/js/mn-accordion.js')}}"></script>
+<script src="{{asset('interface/js/jquery.ajaxchimp.min.js')}}"></script>
+<script src="{{asset('interface/js/jquery.magnific-popup.min.js')}}"></script>
+<script src="{{asset('interface/js/owl.carousel.min.js')}}"></script>
+<script src="{{asset('interface/js/jquery.nice-select.min.js')}}"></script>
+<script src="{{asset('interface/js/isotope.pkgd.min.js')}}"></script>
+{{--  <script src="{{asset('interface/js/mail-script.js')}}"></script>  --}}
+<script src="{{asset('interface/js/wow.min.js')}}"></script>
+<script src="{{asset('interface/js/main.js')}}"></script>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+{{-- <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script> --}}
+<script src="{{asset('js/toastr.min.js')}}"></script>
