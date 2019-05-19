@@ -66,8 +66,7 @@ class BackupController extends Controller
                 'user_id' => auth()->user()->id,
             ]);
 
-            session()->flash('status', 'New backup created!');
-            session()->flash('type', 'success');
+            toastr()->success('New Backup Created!');
 
             return redirect()->back();
         } catch (Exception $e) {
@@ -113,8 +112,7 @@ class BackupController extends Controller
         $disk = Storage::disk(config('laravel-backup.backup.destination.disks')[0]);
         if ($disk->exists(config('laravel-backup.backup.name') . '/' . $file_name)) {
             $disk->delete(config('laravel-backup.backup.name') . '/' . $file_name);
-            session()->flash('status', 'Successfuly Delete!');
-            session()->flash('type', 'success');
+            toastr()->success('Successfuly Delete!');
             return redirect()->back();
         } else {
             abort(404, "The backup file doesn't exist.");
@@ -125,8 +123,9 @@ class BackupController extends Controller
     {
 
         DB::unprepared(file_get_contents('C:/Users/Ermelina/Downloads/db-dumps/'.$request->fileName));
-        session()->flash('status', 'Tables imported successfully');
-        session()->flash('type', 'success');
+        toastr()->success('Tables imported successfully!');
+
+
         return redirect()->back();
     }
 } 
