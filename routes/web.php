@@ -63,5 +63,14 @@ Route::prefix('admin')->namespace('Admin')->name('admin.')->middleware(['admin',
 
     Route::put('order/{id}/approve','OrderController@approveOrder')->name('order.approve');
     Route::resource('orders','OrderController');
+
+
+    Route::get('backup', 'BackupController@index')->name('backup.index');
+    Route::get('backup/create', 'BackupController@create')->name('backup.create');
+    Route::get('backup/download/{file_name}', 'BackupController@download')->name('backup.download');
+    Route::get('backup/delete/{file_name}', 'BackupController@delete')->name('backup.delete');
+    Route::get('backup/importDB','BackupController@importDB')->name('backup.importdb');
+    Route::post('backup/import/','BackupController@ImportDatabase')->name('backup.import');
+    
 });
 
