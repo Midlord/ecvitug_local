@@ -1,7 +1,7 @@
 @extends('layouts.admin.app')
 
 @section('content')
-@include('layouts.modal')
+@include('layouts.delete')
 <div class="card shadow mb-4">
     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
         <h6 class="m-0 font-weight-bold text-primary">Rentals</h6>
@@ -37,9 +37,9 @@
                     <td>{{$product->price}}</td>
                     {{-- <td>{{$status = 1 ? 'Active' : 'Inactive'}}</td> --}}
                     <td>
+                        <a href="{{route('admin.products.edit',$product->id)}}" class="btn btn-success btn-circle btn-sm"><i class="far fa-edit"></i></a> <span>or</span> 
                         <form action="{{route('admin.products.archive', $product->id)}}" method="POST" class="form-delete" enctype="multipart/form-data">
                             @csrf @method('PUT')
-                            <a href="{{route('admin.products.edit',$product->id)}}" class="btn btn-success btn-circle btn-sm"><i class="far fa-edit"></i></a> <span>or</span> 
                             <input type="hidden" name="status" value="1">
                             <button class="btn btn-danger btn-circle btn-sm delete" type="submit"><i class="fas fa-trash"></i></button>
                         </form>

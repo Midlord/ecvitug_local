@@ -22,6 +22,13 @@
   <link rel="stylesheet" href="{{asset('css/toastr.css')}}">
 	<link rel="stylesheet" href="{{asset('css/toastr.min.css')}}">
   @toastr_css
+  <style>
+      .bg-login-image {
+        /* background: url("https://source.unsplash.com/K4mSJ7kc0As/600x800"); */
+        background-position: center;
+        background-size: cover;
+      }
+  </style>
 </head>
 
 <body background="{{asset('images/construction.jpg')}}" style="background-position: center; background-size: cover;">
@@ -37,7 +44,7 @@
           <div class="card-body p-0">
             <!-- Nested Row within Card Body -->
             <div class="row">
-              <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+            <div class="col-lg-6 d-none d-lg-block bg-login-image"><img src="{{asset('images/hat.jpg')}}" style=" width: 500px;height: 577px;" alt=""></div>
               <div class="col-lg-6">
                 <div class="p-5">
                   <div class="text-center">

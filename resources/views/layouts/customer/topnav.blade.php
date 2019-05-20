@@ -9,7 +9,7 @@
                     <li class=""><a class="{{ Route::is('home') ? 'active' : '' }}" href="{{url('/')}}">Home</a></li>
                     <li><a class="{{ Route::is('about') ? 'active' : '' }}" href="{{route('about')}}">About</a></li>
                     <li><a class="{{ Route::is('projects') ? 'active' : '' }}" href="{{route('projects')}}">Projects</a></li>
-                    <li><a class="{{ Route::is('galleries') ? 'active' : '' }}" href="{{route('galleries')}}">Galleries</a></li>
+                    {{-- <li><a class="{{ Route::is('galleries') ? 'active' : '' }}" href="{{route('galleries')}}">Galleries</a></li> --}}
                     <li><a class="{{ Route::is('shop.index') ? 'active' : '' }}" href="{{route('shop.index')}}">Equipments</a></li>
                     @auth
                         <li><a class="{{ Route::is('estimates') ? 'active' : '' }}" href="{{route('estimates')}}">Free Estimates</a></li>
@@ -34,7 +34,7 @@
                         <li><a href="{{route('register')}}">Register</a></li>
                     @endguest
                     @auth
-                    <li class="menu-has-children" style="margin-top: -10px;"><img class="img-profile rounded-circle" style="height:50px; width:50px; object-fit:cover;" src="@if(Auth::user()->provider){{Auth::user()->photo}}@else{{Auth::user()->photo ? '/storage/uploads/avatars/'.auth()->user()->photo : '/images/dummy-img.jpg'}}@endif"></a>
+                    <li class="menu-has-children" style="margin-top: -10px;"><img class="img-profile rounded-circle" style="height:50px; width:50px; object-fit:cover;" src="@if(Auth::user()->provider){{Auth::user()->photo}}@else{{Auth::user()->photo ? '/storage/uploads/avatars/'.auth()->user()->photo : 'images/dummy-img.jpg'}}@endif"></a>
                         <ul>
                             <li><a href="{{route('customer.profile')}}">Profile</a></li>
                             <li><a  href="#" data-toggle="modal" data-target="#logoutModal">Logout</a></li>

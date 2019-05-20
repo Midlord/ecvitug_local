@@ -1,7 +1,7 @@
 @extends('layouts.admin.app')
 
 @section('content')
-@include('layouts.modal')
+@include('layouts.delete')
 <div class="card shadow mb-4">
     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
         <h6 class="m-0 font-weight-bold text-primary">Customers</h6>
@@ -31,14 +31,14 @@
             <tbody>
                 @foreach ($users as $user)
                 <tr>
-                    <td><a href="{{route('admin.customers.show',$user->id)}}">{{date('F j Y',strtotime($user->created_at))}}</a></td>
+                    <td><a href="{{route('admin.customers.show',$user->id)}}">CUST-{{$user->id}}-ECV</a></td>
                     <td>{{$user->name}}</td>
                     <td>{{$user->email}}</td>
                     <td>{{$user->mobilePhone}}</td>
                     <td>{{$status = 1 ? 'Active' : 'Inactive'}}</td>
                     <td>
+                        <a href="{{route('admin.customers.edit',$user->id)}}" class="btn btn-success btn-circle btn-sm"><i class="far fa-edit"></i></a> <span>or</span> 
                         <form action="{{route('admin.customers.archive', $user->id)}}" method="POST" class="form-delete" enctype="multipart/form-data">
-                            <a href="{{route('admin.customers.edit',$user->id)}}" class="btn btn-success btn-circle btn-sm"><i class="far fa-edit"></i></a> <span>or</span> 
                             @csrf @method('PUT')
                             <input type="hidden" name="status" value="0">
                             <button class="btn btn-danger btn-circle btn-sm delete" type="submit"><i class="fas fa-trash"></i></button>

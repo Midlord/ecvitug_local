@@ -10,6 +10,7 @@
             <table class="table table-bordered display text-nowrap" cellspacing="0" width="100%" data-toggle="dataTable" data-form="deleteForm">
                 <thead>
                     <tr>
+                        <th>Image</th>
                         <th>Product Name</th>
                         <th>Total Quantity</th>
                         <th>Total Price</th>
@@ -18,6 +19,7 @@
                 <tbody>
                     @foreach ($orderProducts as $orderProduct)
                     <tr>
+                        <td><img src="{{asset('storage/uploads/equipments/'.$orderProduct->product->image)}}" class="img-fluid image" height="100" width="100" alt=""></td>
                         <td>{{$orderProduct->product->name}}</td>
                         <td>{{$orderProduct->quantity}}</td>
                         <td>P{{$orderProduct->product->price}}</td>

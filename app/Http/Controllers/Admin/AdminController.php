@@ -21,6 +21,10 @@ class AdminController extends Controller
 
         $rentalCount = Product::where('status',1)->count();
 
+        $getOrderDate = Order::where('status',1)->groupBy('created_at')->get();
+
+
+        // return $getOrderDate;
         return view('admin.dashboard',compact('orderSum','customerCount','employeeCount','rentalCount'));
     }
 

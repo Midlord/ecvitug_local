@@ -145,7 +145,7 @@
         </div>
     </div>
 </section>
-<section class="work-area section-gap-top" id="work">
+{{-- <section class="work-area section-gap-top" id="work">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -245,7 +245,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> --}}
 {{--  <section class="pricing-area section-gap-top">
     <div class="container">
         <div class="row">

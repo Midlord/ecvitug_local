@@ -21,6 +21,12 @@
   <link rel="stylesheet" href="{{asset('css/toastr.css')}}">
   <link rel="stylesheet" href="{{asset('css/toastr.min.css')}}">
   @toastr_css
+  <style>
+  .bg-register-image {
+    background-position: center;
+    background-size: cover;
+}
+  </style>
 </head>
 
 <body background="{{asset('images/construction.jpg')}}" style="background-position: center; background-size: cover;">
@@ -29,7 +35,7 @@
         <div class="card-body p-0">
         <!-- Nested Row within Card Body -->
         <div class="row">
-            <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+        <div class="col-lg-5 d-none d-lg-block bg-register-image"><img src="{{asset('images/hat600x800.jpg')}}" width="500" height="810" alt=""></div>
             <div class="col-lg-7">
             <div class="p-5">
                 <div class="text-center">

@@ -16,7 +16,7 @@
 <!-- End banner Area -->
 
 <!-- Start Work Area Area -->
-<section class="work-area section-gap-top" id="work">
+{{-- <section class="work-area section-gap-top" id="work">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -116,7 +116,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> --}}
 
 
 @extends('layouts.customer.app')
