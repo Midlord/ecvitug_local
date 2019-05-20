@@ -1,4 +1,15 @@
 @extends('layouts.customer.app')
+@section('css')
+    <style>
+        .home-banner-area .fullscreen {
+            height: 642px !important;
+        }
+
+        .home-banner-area .container-fluid {
+            padding-left: 13% !important;
+        }
+    </style>
+@endsection
 @section('content')
 <section class="home-banner-area">
     <div class="container-fluid">
@@ -25,7 +36,7 @@
                 </a>
             </div>
             <div class="banner-img offset-lg-1 col-lg-7 col-md-6">
-                <img class="img-fluid" src="interface/img/banner-img.png" alt="">
+                <img class="img-fluid" src="images/construction-2578410_960_720.jpg" height="900" alt="">
             </div>
             <div class="social-icons">
                 <ul>
