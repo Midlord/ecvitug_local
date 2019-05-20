@@ -8,6 +8,7 @@ use App\Models\Product;
 use App\User;
 use App\Models\Estimate;
 use App\Models\Order;
+use Carbon\Carbon;
 class AdminController extends Controller
 {
 
@@ -29,64 +30,25 @@ class AdminController extends Controller
     }
 
 
-    public function create()
+    public function reports()
     {
-        //
+        $orders = Order::where('status',1)->get();
+
+        return view('admin.reports.index',compact('orders'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function report_filter()
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        $dateFrom = $_GET['dateFrom'];
+        $dateTo = $_GET['dateTo'];
+        
+        if($_GET['dateFrom'] && $_GET['dateTo']){
+            $orders =  Order::where('status',1)->latest()->whereBetween('created_at', [Carbon::parse($dateFrom)->startOfDay(), Carbon::parse($dateTo)->endOfDay()])->get();
+            $sum =  Order::where('status',1)->whereBetween('orders.created_at', [Carbon::parse($dateFrom)->startOfDay(), Carbon::parse($dateTo)->endOfDay()])->sum('totalPrice');
+        }else{
+            $orders =  Order::where('status',1)->latest()->get();
+            $sum =  Order::where('status',1)->sum('totalPrice');
+        }
+        return view('admin.reports.index',compact('orders','sum','dateFrom','dateTo'));
     }
 }

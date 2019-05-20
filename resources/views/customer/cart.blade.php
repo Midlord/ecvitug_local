@@ -91,10 +91,10 @@
                 @if (Auth::check())
                 <form action="{{route('checkout')}}" method="post" enctype="multipart/form-data">
                     @csrf
-                    <td><button class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></button></td>
+                    <td><button class="btn btn-success btn-block">Rent Now <i class="fa fa-angle-right"></i></button></td>
                 </form>
                 @else
-                <td><a href="{{route('login')}}" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
+                <td><a href="{{route('login')}}" class="btn btn-success btn-block">Rent Now <i class="fa fa-angle-right"></i></a></td>
                 @endif
             </tr>
         </tfoot>

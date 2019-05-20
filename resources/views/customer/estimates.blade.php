@@ -48,7 +48,7 @@ input[type="number"] {
                                         <div class="input-group-icon">
                                             <div class="form-select" id="default-select">
                                                 <select name="type" required>
-                                                    <option value=""> Select Estimate Type</option>
+                                                    <option value="" disabled selected> Select Estimate Type</option>
                                                     <option value="minor">Minor</option>
                                                     <option value="major">Major</option>
                                                 </select>
@@ -136,7 +136,7 @@ input[type="number"] {
                                         <div class="input-group-icon">
                                             <div class="form-select" id="default-select">
                                                 <select name="classfication" value="{{old('classfication')}}">
-                                                    <option value=""> Classification</option>
+                                                    <option value="" disabled selected> Classification</option>
                                                     <option value="Residential">Residential</option>
                                                     <option value="Commercial">Commercial</option>
                                                 </select>
@@ -148,7 +148,7 @@ input[type="number"] {
                                         <div class="input-group-icon">
                                             <div class="form-select" id="default-select">
                                                 <select name="numberOfFloors" value="{{old('numberOfFloors')}}">
-                                                    <option value=""> Number of Floor Levels</option>
+                                                    <option value="" disabled selected> Number of Floor Levels</option>
                                                     <option value="1">1</option>
                                                     <option value="2">2</option>
                                                     <option value="3 or more">3 or more</option>
@@ -167,7 +167,7 @@ input[type="number"] {
                                         <div class="input-group-icon">
                                             <div class="form-select" id="default-select">
                                                 <select name="numberOfRooms" value="{{old('numberOfRooms')}}" >
-                                                    <option value=""> Number of Rooms</option>
+                                                    <option value="" disabled selected> Number of Rooms</option>
                                                     <option value="1">1</option>
                                                     <option value="2">2</option>
                                                     <option value="3">3</option>
@@ -182,7 +182,7 @@ input[type="number"] {
                                         <div class="input-group-icon">
                                             <div class="form-select" id="default-select">
                                                 <select name="preferedFinished" value="{{old('preferedFinished')}}">
-                                                    <option value=""> Prefer Design</option>
+                                                    <option value="" disabled selected> Prefer Design</option>
                                                     <option value="1 ">Basic</option>
                                                     <option value="1 ">Standard</option>
                                                     <option value="1 ">Semi Elegant</option>
@@ -196,7 +196,7 @@ input[type="number"] {
                                         <div class="input-group-icon">
                                             <div class="form-select" id="default-select">
                                                 <select name="numberOfToiletAndBath" value="{{old('numberOfToiletAndBath')}}" >
-                                                    <option value="">Number of Toilet and Bath</option>
+                                                    <option value="" disabled selected>Number of Toilet and Bath</option>
                                                     <option value="1">1</option>
                                                     <option value="2">2</option>
                                                     <option value="3">3</option>
@@ -211,7 +211,7 @@ input[type="number"] {
                                         <div class="input-group-icon">
                                             <div class="form-select" id="default-select">
                                                 <select name="otherSpecification" value="{{old('otherSpecification')}}" >
-                                                    <option value="">Other Specifications:</option>
+                                                    <option value="" disabled selected>Other Specifications:</option>
                                                     <option value="Gate and Fence">Gate and Fence</option>
                                                     <option value="Maid's Room">Maids Room</option>
                                                     <option value="Guest Room">Guest Room</option>

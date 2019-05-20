@@ -6,3 +6,11 @@ input[type="number"]::-webkit-inner-spin-button {
 input[type="number"] {
     -moz-appearance: textfield;
 }
+
+#printableArea{
+    display:none;
+  }
+  @media print {
+    #noprint {display: none;}
+    div#printableArea {display: block;}
+  }

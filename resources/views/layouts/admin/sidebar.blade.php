@@ -139,7 +139,11 @@
       <i class="fa fa-hdd" aria-hidden="true"></i>
       <span>Backup And Restore</span></a>
   </li>
-
+  <li class="nav-item {{ Route::is('admin.reports.index') ? 'active' : '' }}">
+      <a class="nav-link " href="{{route('admin.reports.index')}}">
+        <i class="fa fa-file" aria-hidden="true"></i>
+        <span>Reports</span></a>
+    </li>
 
   <!-- Nav Item - Tables -->
   <li class="nav-item">

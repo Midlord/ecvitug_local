@@ -46,6 +46,8 @@ Route::namespace('Customer')->name('customer.')->middleware(['customer', 'auth']
 
 Route::prefix('admin')->namespace('Admin')->name('admin.')->middleware(['admin', 'auth'])->group(function () {
     Route::get('/dashboard', 'AdminController@index')->name('dashboard');
+    Route::get('/reports', 'AdminController@reports')->name('reports.index');
+    Route::get('reports/generate','AdminController@report_filter')->name('report.filter');
     Route::resource('/estimates', 'EstimateController');
     // customers
     Route::get('employees','CustomerController@employees')->name('customers.employees');

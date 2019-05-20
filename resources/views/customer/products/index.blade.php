@@ -47,8 +47,7 @@
                                         <img class="image img-fluid" src="{{asset('storage/uploads/equipments/'.$product->image)}}" alt="">
                                     </div>
                                     <div class="middle">
-                                        <h4>{{$product->name}}</h4>
-                                        <div class="cat">Client Project</div>
+                                        <div class="cat">{{$product->name}}</div>
                                     </div>
                                     <a class="overlay" href="{{route('shop.show',$product->slug)}}"></a>
                                 </div>
