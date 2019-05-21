@@ -35,6 +35,7 @@
                         <td>
                             <form action="{{route('admin.order.approve', $order->id)}}" method="POST" class="form-delete" enctype="multipart/form-data">
                                 @csrf @method('PUT')
+                                <input type="hidden" name="id" value="{{$order->id}}">
                                 <input type="hidden" name="CustomerEmail" value="{{$order->user->email}}">
                                 <input type="hidden" name="CustomerName" value="{{$order->user->name}}">
                                 <button class="btn btn-primary  btn-sm delete" type="submit">Click to Approve</button>

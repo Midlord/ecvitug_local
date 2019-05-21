@@ -39,18 +39,18 @@ class OrderController extends Controller
 
     public function approveOrder(Request $request, $id)
     {
-    //    return $request;
-        $order = Order::find($id);
+        $order = Order::findOrFail($id);
 
-        $order->update([
-            'status' => 1
-        ]);
+        // $order->update([
+        //     'status' => 1
+        // ]);
 
-        $orderProducts = OrderProduct::where('order_id',$order->id)->get();
+        $orderProducts = OrderProduct::where('order_id',$id)->get();
         
+        // return $orderProducts;
         foreach ($orderProducts as $orderProduct) {
             # code...
-            $product = Product::find($orderProduct->id);
+            $product = Product::where($orderProduct->id)->first();
 
             $product->update([
                 'quantity' => $product->quantity - $orderProduct->quantity

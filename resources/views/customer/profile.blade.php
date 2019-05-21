@@ -9,7 +9,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="left_img">
-                                <img class="img-fluid image" style="height:500px; display: block;margin: 0 auto;" src="@if($user->provider){{$user->photo}}@else{{$user->photo ? '/storage/uploads/avatars/'.$user->photo : '/images/dummy-img.jpg'}}@endif" alt="">
+                                <img class="img-fluid image" style="height:500px; display: block;margin: 0 auto;" src="@if($user->provider){{$user->photo}}@else{{$user->photo ? 'http://localhost/ecvitug_local/public/storage/uploads/avatars/'.$user->photo : '/images/dummy-img.jpg'}}@endif" alt="">
                             </div>
                         </div>
                         <div class="offset-md-1 col-md-5">
@@ -37,6 +37,7 @@
                                 <th>Name</th>
                                 <th>Quantity</th>
                                 <th>Total Price</th>
+                                <th>Status</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -46,6 +47,7 @@
                                 <td>{{$order->user->name}}</td>
                                 <td>{{$order->quantity}}</td>
                                 <td>{{$order->totalPrice}}</td>
+                                <td>{{$order->status == '1' ? 'Approved' : 'Pending'}}</td>
                             </tr>
                             @endforeach
                         </tbody>

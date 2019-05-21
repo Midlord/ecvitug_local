@@ -76,7 +76,7 @@ class HomeController extends Controller
     {
         $user = Auth::user();
 
-        $orders = Order::where('user_id',$user->id)->get();
+        $orders = Order::where('user_id',$user->id)->latest()->get();
 
         return view ('customer.profile',compact('user','orders'));
     }
