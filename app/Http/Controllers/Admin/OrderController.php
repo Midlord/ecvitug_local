@@ -41,19 +41,19 @@ class OrderController extends Controller
     {
         $order = Order::findOrFail($id);
 
-        // $order->update([
-        //     'status' => 1
-        // ]);
+        $order->update([
+            'status' => 1
+        ]);
 
         $orderProducts = OrderProduct::where('order_id',$id)->get();
         
         // return $orderProducts;
-        foreach ($orderProducts as $orderProduct) {
+        foreach ($orderProducts as $key => $v) {
             # code...
-            $product = Product::where($orderProduct->id)->first();
-
+            $product = Product::find($v->product_id);
+            
             $product->update([
-                'quantity' => $product->quantity - $orderProduct->quantity
+                'quantity' => $product->quantity - $v->quantity
             ]);
             
         }
