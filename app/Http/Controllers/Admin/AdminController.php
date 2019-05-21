@@ -34,7 +34,13 @@ class AdminController extends Controller
     {
         $orders = Order::where('status',1)->get();
 
-        return view('admin.reports.index',compact('orders'));
+        $dateFrom = date('F d, Y');
+        $dateTo = date('F d, Y');
+
+        $sum =  Order::where('status',1)->sum('totalPrice');
+
+
+        return view('admin.reports.index',compact('orders','sum','dateFrom','dateTo'));
     }
 
     public function report_filter()

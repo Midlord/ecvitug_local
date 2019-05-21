@@ -34,7 +34,7 @@
                         <li><a href="{{route('register')}}">Register</a></li>
                     @endguest
                     @auth
-                    <li class="menu-has-children" style="margin-top: -10px;"><img class="img-profile rounded-circle" style="height:50px; width:50px; object-fit:cover;" src="@if(Auth::user()->provider){{Auth::user()->photo}}@else{{Auth::user()->photo ? 'storage/uploads/avatars/'.auth()->user()->photo : 'images/dummy-img.jpg'}}@endif"></a>
+                    <li class="menu-has-children" style="margin-top: -10px;"><img class="img-profile rounded-circle" style="height:50px; width:50px; object-fit:cover;" src="@if(Auth::user()->provider){{Auth::user()->photo}}@else{{Auth::user()->photo ? 'http://localhost/ecvitug_local/public/storage/uploads/avatars/'.auth()->user()->photo : 'images/dummy-img.jpg'}}@endif"></a>
                         <ul>
                             <li><a href="{{route('customer.profile')}}">Profile</a></li>
                             <li><a  href="#" data-toggle="modal" data-target="#logoutModal">Logout</a></li>

@@ -15,18 +15,18 @@
     </div>
     <div class="card-body">
     <div class="row">
-            <div class="col-md-12 float-right">
+            <div class="col-md-9 float-right">
                 <form action="{{route('admin.report.filter')}}" method="GET" enctype="multipart/form-data"> 
                     <div class="form-row">
                         <div class="col-md-4">
                             <div class="">
-                                <input type="text" name="dateFrom" id="dateFrom" class="form-control datepicker" value="{{isset($_GET['dateFrom']) ? $_GET['dateFrom'] : ''}}">
+                                <input type="text" name="dateFrom" id="dateFrom" class="form-control datepicker" autocomplete="off" value="{{isset($_GET['dateFrom']) ? $_GET['dateFrom'] : ''}}">
                                 <label for="dateFrom">From</label>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="">
-                                <input type="text" name="dateTo" id="dateTo" class="form-control datepicker" value="{{isset($_GET['dateTo']) ? $_GET['dateTo'] : ''}}">
+                                <input type="text" name="dateTo" id="dateTo" class="form-control datepicker" autocomplete="off" value="{{isset($_GET['dateTo']) ? $_GET['dateTo'] : ''}}">
                                 <label for="dateTo">To</label>
                             </div>
                         </div>
@@ -37,6 +37,9 @@
                         </div>
                     </div>
                 </form>
+            </div>
+            <div class="col-md-3">
+                <button onclick="printDiv('printableArea')" class="btn btn-primary btn-rounded float-right" id="printable">Print</button>
             </div>
         </div>
         <div class="table-responsive">
@@ -53,7 +56,7 @@
                     <tr>
                         <td>{{$order->created_at}}</td>
                         <td>{{$order->user->name}}</td>
-                        <td>{{$order->totalAmount}}</td>
+                        <td>{{$order->totalPrice}}</td>
                     </tr>
                @endforeach
             </tbody>
@@ -87,13 +90,12 @@
                         <tr>
                             <td>{{$order->created_at}}</td>
                             <td>{{$order->user->name}}</td>
-                            <td>{{$order->totalAmount}}</td>
+                            <td>{{$order->totalPrice}}</td>
                         </tr>
                    @endforeach
                 </tbody>
                 <tfoot>
                     <tr>
-                        <th class="text-bold"></th>
                         <th class="text-bold"></th>
                         <th class="text-bold text-right">Total:</th>
                         <th style="font-size:24px; font-weight:bold;"> <strong>P {{number_format($sum, 2)}}</strong></th>
@@ -118,7 +120,19 @@ $( function() {
         maxDate: new Date 
     });
 
-    $('.destroy-dt').DataTable().destroy();
+
 });
+
+function printDiv(divName) {
+    var printContents = document.getElementById(divName).innerHTML;
+    var originalContents = document.body.innerHTML;
+
+    document.body.innerHTML = printContents;
+
+    window.print();
+
+    document.body.innerHTML = originalContents;
+}
+
 </script>
 @endsection

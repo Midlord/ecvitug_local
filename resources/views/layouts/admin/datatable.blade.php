@@ -1,5 +1,5 @@
 <script>
-$('table').DataTable({
+$('table .table-bordered').DataTable({
     "scrollX": true,
     language: {
         lengthMenu: "Show _MENU_",

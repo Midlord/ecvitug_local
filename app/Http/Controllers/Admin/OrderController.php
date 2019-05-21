@@ -47,10 +47,10 @@ class OrderController extends Controller
         ]);
 
         $orderProducts = OrderProduct::where('order_id',$order->id)->get();
-
+        
         foreach ($orderProducts as $orderProduct) {
             # code...
-            $product = Product::where('id',$orderProduct->id)->first();
+            $product = Product::find($orderProduct->id);
 
             $product->update([
                 'quantity' => $product->quantity - $orderProduct->quantity
